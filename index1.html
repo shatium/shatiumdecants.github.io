@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Esta etiqueta garantiza que se vea perfecto en dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SHATIUM | Decants & Asesoría Olfativa</title>
+    
+    <!-- =========================================
+         FUENTES ELEGANTES (Google Fonts)
+    ========================================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           VARIABLES Y ESTILOS BASE
+        ========================================= */
+        :root {
+            --bg-dark: #000000;
+            --bg-light: #f5f5f7;
+            --text-light: #f5f5f7;
+            --text-dark: #1d1d1f;
+            --text-muted-dark: #86868b;
+            --text-muted-light: #6e6e73;
+            
+            --accent-silver: #e2e2e7; 
+            --silver-gradient: linear-gradient(135deg, #ffffff 0%, #c7c7cc 45%, #8e8e93 85%, #e5e5ea 100%);
+            --silver-border: rgba(226, 226, 231, 0.22);
+            --silver-glow: rgba(226, 226, 231, 0.05);
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        
+        p { margin: 0; letter-spacing: 0.01em; }
+
+        /* =========================================
+           ANIMACIONES PREMIUM (Scroll Reveal & Flotación)
+        ========================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(45px);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .delay-1 { transition-delay: 0.15s; }
+        .delay-2 { transition-delay: 0.3s; }
+        .delay-3 { transition-delay: 0.45s; }
+
+        @keyframes organicFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @keyframes organicFloatAlt {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-16px); }
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { filter: drop-shadow(0 4px 15px rgba(255, 255, 255, 0.05)); }
+            50% { filter: drop-shadow(0 4px 25px rgba(255, 255, 255, 0.15)); }
+        }
+
+        /* =========================================
+           SECCIONES GENERALES (Responsive)
+        ========================================= */
+        section {
+            padding: 110px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) { section { padding: 80px 20px; } }
+
+        /* =========================================
+           HERO SECTION
+        ========================================= */
+        .hero {
+            min-height: 80vh;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--bg-dark);
+            position: relative;
+            padding: 40px 20px;
+        }
+
+        .hero-brand-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .logo-container {
+            width: clamp(100px, 16vw, 150px);
+            height: clamp(100px, 16vw, 150px);
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            animation: logoPulse 4s infinite ease-in-out;
+        }
+
+        .hero-divider {
+            width: 45px;
+            height: 1px;
+            background: var(--silver-gradient);
+            margin-bottom: 28px;
+            opacity: 0.6;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 6rem);
+            margin-bottom: 14px;
+            letter-spacing: 0.08em;
+            background: var(--silver-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: clamp(1rem, 3vw, 1.8rem);
+            color: var(--text-muted-dark);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* =========================================
+           TEXTOS Y CONCEPTOS
+        ========================================= */
+        .concept {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding-top: 100px;
+        }
+
+        .concept h2, .dark-section h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 30px;
+        }
+
+        .dark-section h2 {
+            background: var(--silver-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .concept p, .dark-section p {
+            max-width: 850px;
+            font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+            font-weight: 400;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .concept p { color: var(--text-muted-light); }
+        .dark-section p { color: var(--text-muted-dark); }
+        
+        .concept p span { color: var(--text-dark); font-weight: 600; }
+        .dark-section p span { color: var(--accent-silver); font-weight: 600; }
+
+        /* Highlight Boxes flotantes */
+        .highlight-box {
+            background-color: rgba(0,0,0,0.03);
+            padding: 35px 40px;
+            border-radius: 18px;
+            margin-top: 30px;
+            max-width: 900px;
+            animation: organicFloat 8s ease-in-out infinite;
+            transition: box-shadow 0.5s ease, border-color 0.5s ease;
+        }
+        
+        .dark-bg .highlight-box {
+            background-color: var(--silver-glow);
+            border: 1px solid var(--silver-border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .dark-bg .highlight-box:hover {
+            box-shadow: 0 15px 40px rgba(226, 226, 231, 0.15);
+            border-color: rgba(226, 226, 231, 0.4);
+        }
+
+        .highlight-box h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        /* =========================================
+           GALERÍA DE TAMAÑOS (3 FOTOS)
+        ========================================= */
+        .sizes-container {
+            width: 100%;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .size-card {
+            background-color: #141416;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            transition: box-shadow 0.6s ease, border-color 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-wrapper:nth-child(1) .size-card { animation: organicFloat 8s ease-in-out infinite 0s; }
+        .gallery-wrapper:nth-child(2) .size-card { animation: organicFloatAlt 9s ease-in-out infinite 1s; }
+        .gallery-wrapper:nth-child(3) .size-card { animation: organicFloat 8.5s ease-in-out infinite 0.5s; }
+
+        .size-card:hover {
+            border-color: rgba(226, 226, 231, 0.4);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+        }
+
+        .real-image {
+            width: 100%;
+            height: 220px; 
+            object-fit: contain;
+            margin-bottom: 25px;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .size-card:hover .real-image { transform: scale(1.1); }
+
+        .size-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-silver);
+        }
+
+        .size-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted-dark);
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .sprays-badge {
+            background-color: rgba(255,255,255,0.1);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* =========================================
+           TARJETAS FLIP (EJEMPLIFICACIONES ÁRABES)
+        ========================================= */
+        .showcase-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 100%;
+            max-width: 1100px;
+            margin-top: 50px;
+        }
+        @media(min-width: 900px) {
+            .showcase-container { flex-direction: row; }
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 600px; 
+            perspective: 1000px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent; 
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+        
+        @media (hover: hover) and (pointer: fine) {
+            .flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+        }
+        .flip-card.is-flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 24px;
+            border: 1px solid rgba(226, 226, 231, 0.15);
+            background: linear-gradient(135deg, #141416 0%, #0a0a0c 100%);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #0a0a0c 0%, #1a1a1d 100%);
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent-silver);
+            margin-bottom: 30px;
+        }
+
+        .card-front-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            height: 100%;
+            text-align: left;
+        }
+
+        @media (max-width: 600px) {
+            .card-front-content { flex-direction: column; text-align: center; }
+        }
+
+        .card-img-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-img-container img {
+            max-height: 250px;
+            object-fit: contain;
+        }
+
+        .card-accords {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .accords-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted-dark);
+            margin-bottom: 15px;
+            text-align: left; 
+        }
+        @media (max-width: 600px) { .accords-title { text-align: center; } }
+
+        .accord-bar {
+            height: 24px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            margin-right: auto; 
+            margin-left: 0;
+        }
+        @media (max-width: 600px) { .accord-bar { margin-left: auto; margin-right: auto; } }
+
+        .pyramid-level {
+            margin-bottom: 25px;
+        }
+        .pyramid-level h5 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-silver);
+            margin: 0 0 10px 0;
+            border-bottom: 1px solid rgba(226, 226, 231, 0.2);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+        .pyramid-level p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-muted-light);
+        }
+        .pyramid-level strong {
+            color: var(--text-light);
+            font-weight: 500;
+            display: block;
+            margin-bottom: 5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+        
+        .flip-hint {
+            font-size: 0.75rem;
+            color: var(--text-muted-dark);
+            font-style: italic;
+            margin-top: auto;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* =========================================
+           SECCIÓN DE COMBOS Y FOTO DEL COMBO
+        ========================================= */
+        .combo-section {
+            background: linear-gradient(180deg, #0a0a0c 0%, #000000 100%);
+            padding: 120px 20px;
+            border-top: 1px solid #1c1c1e;
+        }
+
+        .combo-box {
+            background: linear-gradient(135deg, #141416 0%, #0c0c0e 100%);
+            border: 1px solid rgba(226, 226, 231, 0.3);
+            border-radius: 24px;
+            padding: 50px 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            position: relative;
+            animation: organicFloat 10s ease-in-out infinite;
+            transition: box-shadow 0.6s ease, border-color 0.6s ease;
+        }
+
+        .combo-box:hover {
+            box-shadow: 0 30px 80px rgba(0,0,0,0.9);
+            border-color: rgba(226, 226, 231, 0.5);
+        }
+
+        .combo-box::before {
+            content: 'BENEFICIO VIP';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--silver-gradient);
+            color: #000;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* Exhibición de los 3 decants en el combo */
+        .combo-decants-showcase {
+            margin: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .combo-decants-img {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            max-height: 260px;
+            object-fit: contain;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .combo-box:hover .combo-decants-img {
+            transform: scale(1.05);
+        }
+
+        .combo-decants-note {
+            font-size: 1rem;
+            color: var(--accent-silver);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            margin-top: 20px;
+            letter-spacing: 0.05em;
+            background: var(--silver-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .combo-price {
+            font-size: clamp(3rem, 6vw, 4rem);
+            font-family: 'Playfair Display', serif;
+            background: var(--silver-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 20px 0;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+        footer { background-color: #000; border-top: 1px solid #1c1c1e; color: var(--text-muted-dark); text-align: center; padding: 40px 20px; font-size: 0.9rem; }
+        .footer-content { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .divider { display: none; }
+        @media (min-width: 600px) { .divider { display: inline; color: #444; } }
+    </style>
+</head>
+<body>
+
+    <!-- ====================================================================
+         HERO SECTION 
+         ==================================================================== -->
+    <section class="hero reveal">
+        <div class="hero-brand-wrapper">
+            <div class="logo-container">
+                <!-- 🔴 AQUÍ VA EL LOGOTIPO PRINCIPAL 🔴 -->
+                <img src="shat1.png" alt="Logotipo SHATIUM" onerror="this.style.opacity='0'">
+            </div>
+            <div class="hero-divider"></div>
+            <h1>SHATIUM</h1>
+            <h2>El Universo de los Decants</h2>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         SECCIÓN 1: ¿QUÉ ES UN DECANT?
+         ==================================================================== -->
+    <section class="concept reveal light-bg">
+        <h2>¿Qué es un Decant?</h2>
+        <p>
+            Un decant es una porción extraída directamente del frasco original y envasada en un atomizador de lujo de menor tamaño. En SHATIUM te entregamos <span>calidad por calidad</span>. Cero alteraciones, cero diluciones. Es exactamente la misma magia y duración del frasco principal, optimizada para ti.
+        </p>
+        
+        <div class="reveal delay-1">
+            <div class="highlight-box" style="background-color: #ffffff; border: 1px solid #e5e5ea; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <h3 style="color: var(--text-dark);">Entendemos que elegir puede ser complejo...</h3>
+                <p style="margin: 0; font-size: 1.1rem; color: var(--text-muted-light);">
+                    En SHATIUM sabemos que ingresar a este mundo sin saber qué perfume es apto para ti resulta abrumador. Pero la solución es simple,<span>nosotros te guiamos en todo el proceso.</span> Te acompañamos paso a paso en la búsqueda de tu firma olfativa, descifrando tus gustos, hasta que logres casarte definitivamente con tu aroma preferido.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         SECCIÓN 2: AUGE DE LA PERFUMERÍA ÁRABE Y EJEMPLIFICACIONES
+         ==================================================================== -->
+    <section class="concept reveal dark-bg dark-section" style="background-color: var(--bg-dark); padding-top: 100px;">
+        <h2>El Boom del Lujo Árabe</h2>
+        <p>
+            Actualmente, nuestro catálogo de decants arranca con la joya de la corona: <span>La Perfumería Árabe</span>. Estas fragancias están dominando la industria a nivel mundial por una sencilla razón, entregan una proyección bestial, duración extrema en piel y una calidad de ingredientes que humilla a muchas marcas tradicionales. 
+        </p>
+        
+        <p style="margin-top: 15px;">
+            A continuación te presentamos dos de los <span>mejores ejemplos de perfumes árabes en la actualidad</span>, detallando cómo se estructuran sus aromas originales y qué experimentarás en piel al llevarlos en nuestros decants.
+        </p>
+
+        <!-- TARJETAS FLIP DE EJEMPLIFICACIÓN -->
+        <div class="showcase-container">
+            
+            <!-- TARJETA 1: 9 PM AFNAN -->
+            <div class="flip-card reveal delay-1">
+                <div class="flip-card-inner">
+                    <!-- FRENTE -->
+                    <div class="flip-card-front">
+                        <div class="card-title">9 PM Night Out - Afnan</div>
+                        <div class="card-front-content">
+                            <div class="card-img-container">
+                                <!-- 🔴 FOTO 9 PM -->
+                                <img src="shatdecant1.jpg" alt="Afnan 9 PM" onerror="this.src='https://via.placeholder.com/200x300/1c1c1e/86868b?text=FOTO+9+PM'">
+                            </div>
+                            <div class="card-accords">
+                                <div class="accords-title">Acordes Principales</div>
+                                <div class="accord-bar" style="width: 100%; background-color: #794A1F;">Amaderado</div>
+                                <div class="accord-bar" style="width: 95%; background-color: #FF5A36;">Afrutados</div>
+                                <div class="accord-bar" style="width: 90%; background-color: #D94821;">Cálido Especiado</div>
+                                <div class="accord-bar" style="width: 85%; background-color: #F23D5E;">Dulce</div>
+                                <div class="accord-bar" style="width: 80%; background-color: #FFC13B; color: #000; text-shadow: none;">Tropical</div>
+                                <div class="accord-bar" style="width: 75%; background-color: #5AB39D;">Aromático</div>
+                                <div class="accord-bar" style="width: 70%; background-color: #B798C9;">Lavanda</div>
+                                <div class="accord-bar" style="width: 65%; background-color: #FA9CB5; color: #000; text-shadow: none;">Florales</div>
+                                <div class="accord-bar" style="width: 60%; background-color: #FBF1C7; color: #000; text-shadow: none;">Avainillado</div>
+                                <div class="accord-bar" style="width: 55%; background-color: #A2D176; color: #000; text-shadow: none;">Fresco Especiado</div>
+                            </div>
+                        </div>
+                        <div class="flip-hint">(Toca la tarjeta para ver la Pirámide Olfativa ↻)</div>
+                    </div>
+                    <!-- DORSO -->
+                    <div class="flip-card-back">
+                        <div class="card-title" style="margin-bottom: 20px;">Pirámide del Perfume</div>
+                        
+                        <div class="pyramid-level">
+                            <h5>Notas de Salida</h5>
+                            <strong>Pitahaya, Coñac, Lavanda, Manzana, Bergamota</strong>
+                            <p>Una apertura vibrante y embriagadora donde la frescura crujiente de la manzana se funde con el aura exótica del coñac y pitahaya.</p>
+                        </div>
+                        <div class="pyramid-level">
+                            <h5>Corazón</h5>
+                            <strong>Tófe, Gamuza, Cardamomo, Cedro, Mahonial</strong>
+                            <p>Un centro cálido y seductor, dominado por la adictiva dulzura del tófe, finamente abrazada por la textura de la gamuza y maderas elegantes.</p>
+                        </div>
+                        <div class="pyramid-level" style="margin-bottom: 0;">
+                            <h5>Base</h5>
+                            <strong>Haba Tonka, Akigalawood, Ambrofix™, Pachulí</strong>
+                            <p>Una base magnética y de fijación extrema que deja una estela profundamente envolvente y nocturna.</p>
+                        </div>
+                        <div class="flip-hint">(Toca para volver a la imagen ↻)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 2: KHAMRAH DUKHAN -->
+            <div class="flip-card reveal delay-2">
+                <div class="flip-card-inner">
+                    <!-- FRENTE -->
+                    <div class="flip-card-front">
+                        <div class="card-title">Khamrah Dukhan - Lattafa</div>
+                        <div class="card-front-content">
+                            <div class="card-img-container">
+                                <!-- 🔴 FOTO KHAMRAH -->
+                                <img src="shatdecant2.jpg" alt="Lattafa Khamrah Dukhan" onerror="this.src='https://via.placeholder.com/200x300/1c1c1e/86868b?text=FOTO+KHAMRAH'">
+                            </div>
+                            <div class="card-accords">
+                                <div class="accords-title">Acordes Principales</div>
+                                <div class="accord-bar" style="width: 100%; background-color: #C15F21;">Ámbar</div>
+                                <div class="accord-bar" style="width: 90%; background-color: #D94821;">Cálido Especiado</div>
+                                <div class="accord-bar" style="width: 80%; background-color: #F23D5E;">Dulce</div>
+                                <div class="accord-bar" style="width: 70%; background-color: #C2A278;">Tabaco</div>
+                                <div class="accord-bar" style="width: 60%; background-color: #D1BFAe; color: #000; text-shadow: none;">Balsámico</div>
+                                <div class="accord-bar" style="width: 50%; background-color: #FBF1C7; color: #000; text-shadow: none;">Avainillado</div>
+                                <div class="accord-bar" style="width: 45%; background-color: #B3A4B8;">Ahumado</div>
+                            </div>
+                        </div>
+                        <div class="flip-hint">(Toca la tarjeta para ver la Pirámide Olfativa ↻)</div>
+                    </div>
+                    <!-- DORSO -->
+                    <div class="flip-card-back">
+                        <div class="card-title" style="margin-bottom: 20px;">Pirámide del Perfume</div>
+                        
+                        <div class="pyramid-level">
+                            <h5>Notas de Salida</h5>
+                            <strong>Pimienta Negra, Tabaco, Piña</strong>
+                            <p>Un impacto inicial audaz y maduro, donde las hojas de tabaco oscuras se iluminan de forma exquisita con el toque jugoso de la piña.</p>
+                        </div>
+                        <div class="pyramid-level">
+                            <h5>Corazón</h5>
+                            <strong>Pachulí, Café, Iris</strong>
+                            <p>Un corazón denso y misterioso; el café tostado aporta energía mientras el iris le confiere una textura atalcada sumamente lujosa.</p>
+                        </div>
+                        <div class="pyramid-level" style="margin-bottom: 0;">
+                            <h5>Base</h5>
+                            <strong>Vainilla, Ámbar, Madera Seca, Benjuí, Ládano</strong>
+                            <p>Un fondo resinoso, dulce y ardiente que se fusiona con el cuerpo, envolviendo la piel como oro líquido durante horas.</p>
+                        </div>
+                        <div class="flip-hint">(Toca para volver a la imagen ↻)</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="reveal delay-3" style="width: 100%;">
+            <div class="highlight-box dark-bg" style="margin: 50px auto 0 auto;">
+                <h3 style="color: var(--accent-silver);">Pregunta por nuestro catálogo actualizado</h3>
+                <p style="margin: 0; font-size: 1.1rem; color: var(--text-light);">
+                    El inventario se mueve rápido. Contáctanos para conocer las opciones árabes disponibles hoy. <span>No te quedes sin probar lo que está marcando tendencia en el mundo.</span>
+                </p>
+                <p style="margin-top: 18px; font-size: 0.85rem; color: #a1a1a6; font-style: italic; line-height: 1.5;">
+                    * Próximamente ampliaremos nuestro catálogo con exquisitos perfumes de diseñador y perfumería de autor. ¡No olvides preguntar siempre por nuestro stock disponible y seguirnos en nuestras redes sociales para enterarte de las novedades antes que nadie!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         SECCIÓN 3: NUESTROS TAMAÑOS
+         ==================================================================== -->
+    <section class="reveal dark-bg dark-section" style="background-color: var(--bg-dark); padding-top: 40px;">
+        <h2>Nuestros Formatos</h2>
+        <p>
+            Hablando con la verdad y números reales: un atomizador de decant estándar de alta calidad libera en promedio 13 sprays por mililitro. Aquí tienes las matemáticas exactas de lo que te llevas.
+        </p>
+
+        <div class="sizes-container">
+            <!-- TAMAÑO 1: 5 ML -->
+            <div class="gallery-wrapper reveal delay-1">
+                <div class="size-card">
+                    <img src="shat5ml.jpg" alt="Decant 5ML" class="real-image" onerror="this.src='https://via.placeholder.com/150x250/1c1c1e/86868b?text=FOTO+5ML'">
+                    <h4 class="size-title">5 ML</h4>
+                    <p class="size-desc">Ideal para probar ese perfume del que todos hablan sin comprometer tu billetera.</p>
+                    <div class="sprays-badge">~ 65 Atomizaciones Reales</div>
+                </div>
+            </div>
+
+            <!-- TAMAÑO 2: 10 ML -->
+            <div class="gallery-wrapper reveal delay-2">
+                <div class="size-card">
+                    <img src="shat10ml.jpg" alt="Decant 10ML" class="real-image" onerror="this.src='https://via.placeholder.com/150x250/1c1c1e/86868b?text=FOTO+10ML'">
+                    <h4 class="size-title">10 ML</h4>
+                    <p class="size-desc">El tamaño estándar perfecto. Llévalo contigo y haz que sea tu firma durante semanas.</p>
+                    <div class="sprays-badge">~ 130 Atomizaciones Reales</div>
+                </div>
+            </div>
+
+            <!-- TAMAÑO 3: 20 ML -->
+            <div class="gallery-wrapper reveal delay-3">
+                <div class="size-card">
+                    <img src="shat20ml.jpg" alt="Decant 20ML" class="real-image" onerror="this.src='https://via.placeholder.com/150x250/1c1c1e/86868b?text=FOTO+20ML'">
+                    <h4 class="size-title">20 ML</h4>
+                    <p class="size-desc">Pura rentabilidad. La cantidad ideal para dominar tu día a día con el mejor valor.</p>
+                    <div class="sprays-badge">~ 260 Atomizaciones Reales</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         SECCIÓN 4: COMBO SHATIUM
+         ==================================================================== -->
+    <section class="combo-section reveal">
+        <div class="combo-box reveal delay-1">
+            <h3 style="color: var(--accent-silver); font-size: 2.2rem; font-family: 'Playfair Display', serif; margin-bottom: 10px;">
+                Combo SHATIUM
+            </h3>
+            <p style="color: var(--text-muted-dark); font-size: 1.1rem; margin-bottom: 20px;">
+                Pensado exclusivamente para premiar a nuestra <strong>comunidad SHATIUM</strong> y cuidar tu bolsillo. Tú eliges <strong>3 decants de 20 ML</strong> de tu preferencia para armar ese armario olfativo que siempre has deseado tener.
+            </p>
+
+            <!-- 🔴🔴🔴 IMAGEN DE LOS 3 DECANTS AQUÍ 🔴🔴🔴 -->
+            <div class="combo-decants-showcase">
+                <img src="shatfrasco.jpg" alt="Combo 3 Decants" class="combo-decants-img" onerror="this.src='https://via.placeholder.com/400x250/1c1c1e/86868b?text=FOTO+3+DECANTS'">
+                <div class="combo-decants-note">* Fragancias a tu libre elección.</div>
+            </div>
+            
+            <div class="combo-price">Desde $23</div>
+            
+            <p style="color: var(--text-light); font-size: 1.15rem; line-height: 1.6; margin-bottom: 25px;">
+                Con este combo te llevas casi <strong>800 atomizaciones en total</strong>. Si usas 4 sprays diarios, tienes aromas de lujo para más de medio año, alternando la seducción, frescura o elegancia según te despierte el día. 
+            </p>
+            
+            <div style="border-top: 1px solid rgba(226, 226, 231, 0.2); padding-top: 25px;">
+                <h4 style="color: #fff; font-size: 1.3rem; margin-bottom: 15px;">Pero la experiencia SHATIUM no termina ahí...</h4>
+                <p style="color: var(--text-muted-dark); font-size: 1.05rem; line-height: 1.6;">
+                    Al adquirir tu <strong>Combo SHATIUM</strong> ingresas directamente a nuestro círculo VIP. En tu próxima visita, con solo recordarnos que ya adquiriste este combo, desbloqueas automáticamente <strong>descuentos exclusivos</strong> para: tu próximo perfume original sellado, fragancias de nuestra línea Essentials, o futuras recargas de decants. Tu fidelidad se paga con puro lujo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         FOOTER
+         ==================================================================== -->
+    <footer>
+        <div class="footer-content">
+            <span>© 2026 SHATIUM. Todos los derechos reservados.</span>
+            <span class="divider">|</span>
+            <span>Garantía de Originalidad 🇪🇨</span>
+        </div>
+    </footer>
+
+    <!-- SCRIPT ANIMACIONES E INTERACCIONES TÁCTILES -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Animaciones Reveal
+            const reveals = document.querySelectorAll('.reveal');
+            const revealOnScroll = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.05, 
+                rootMargin: "0px 0px -40px 0px" 
+            });
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+            
+            setTimeout(() => {
+                const hero = document.querySelector('.hero');
+                if(hero) hero.classList.add('active');
+            }, 100);
+
+            // Funcionalidad de giro 3D en dispositivos móviles (click/tap)
+            const flipCards = document.querySelectorAll('.flip-card');
+            flipCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('is-flipped');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

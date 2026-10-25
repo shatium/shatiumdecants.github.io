@@ -167,7 +167,7 @@
         .flip-card {
             background-color: transparent;
             width: 100%;
-            height: 600px; 
+            height: 650px; /* Aumentado para computadora */
             perspective: 1000px;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent; 
@@ -228,18 +228,19 @@
             font-size: 0.75rem; color: var(--text-muted-dark); font-style: italic; margin-top: auto; text-align: center; width: 100%; padding-top: 10px;
         }
 
-        /* 📱 AJUSTES EXCLUSIVOS PARA MÓVILES EN LA TARJETA (Evita cortes) */
+        /* 📱 AJUSTES EXCLUSIVOS PARA MÓVILES EN LA TARJETA (Evita cortes, alarga el recuadro) */
         @media (max-width: 600px) { 
-            .flip-card { height: 630px; } /* Más altura para el móvil */
-            .flip-card-front, .flip-card-back { padding: 30px 20px; } /* Menos padding lateral y superior */
+            .flip-card { height: 780px; } /* Recuadro mucho más largo en celulares */
+            .flip-card-front, .flip-card-back { padding: 30px 20px; } 
             .card-title { margin-bottom: 15px; font-size: 1.6rem; }
-            .card-front-content { flex-direction: column; text-align: center; }
-            .accords-title { text-align: center; }
-            .accord-bar { margin-left: auto; margin-right: auto; }
-            .pyramid-level { margin-bottom: 15px; } /* Reducido para que quepa todo */
-            .pyramid-level p { font-size: 0.85rem; line-height: 1.4; margin-top: 4px; }
-            .pyramid-level h5 { margin-bottom: 4px; font-size: 0.75rem; }
-            .pyramid-level strong { font-size: 1rem; margin-bottom: 2px; }
+            .card-front-content { flex-direction: column; text-align: center; justify-content: flex-start; }
+            .card-img-container img { max-height: 220px; margin-bottom: 10px; } /* Imagen ligeramente más pequeña para dar espacio */
+            .accords-title { text-align: center; margin-top: 10px; margin-bottom: 10px; }
+            .accord-bar { margin-left: auto; margin-right: auto; height: 22px; margin-bottom: 8px; } 
+            .pyramid-level { margin-bottom: 20px; } 
+            .pyramid-level p { font-size: 0.9rem; line-height: 1.5; margin-top: 4px; }
+            .pyramid-level h5 { margin-bottom: 6px; font-size: 0.8rem; }
+            .pyramid-level strong { font-size: 1.05rem; margin-bottom: 4px; }
         }
 
         /* =========================================
@@ -304,7 +305,7 @@
             <div class="highlight-box" style="background-color: #ffffff; border: 1px solid #e5e5ea; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                 <h3 style="color: var(--text-dark);">Entendemos que elegir puede ser complejo...</h3>
                 <p style="margin: 0; font-size: 1.1rem; color: var(--text-muted-light);">
-                    En SHATIUM sabemos que ingresar a este mundo sin saber qué perfume es apto para ti resulta abrumador. Pero la solución es simple, <span>nosotros te guiamos en todo el proceso.</span> Te acompañamos paso a paso en la búsqueda de tu firma olfativa, descifrando tus gustos, hasta que logres casarte definitivamente con tu aroma preferido.
+                    En SHATIUM sabemos que ingresar a este mundo sin saber qué perfume es apto para ti resulta abrumador. Pero la solución es simple,<span>nosotros te guiamos en todo el proceso.</span> Te acompañamos paso a paso en la búsqueda de tu firma olfativa, descifrando tus gustos, hasta que logres casarte definitivamente con tu aroma preferido.
                 </p>
             </div>
         </div>
@@ -314,7 +315,7 @@
     <section class="concept reveal dark-bg dark-section" style="background-color: var(--bg-dark); padding-top: 100px;">
         <h2>El Boom del Lujo Árabe</h2>
         <p>
-            Actualmente, nuestro catálogo de decants arranca con la joya de la corona: <span>La Perfumería Árabe</span>. Estas fragancias están dominando la industria a nivel mundial por una sencilla razón, entregan una proyección bestial, duración extrema en piel y una calidad de ingredientes que humilla a muchas marcas tradicionales. 
+            Actualmente, nuestro catálogo de decants arranca con la joya de la corona: <span>La Perfumería Árabe</span>. Estas fragancias están dominando la industria a nivel mundial por una sencilla razón entregan una proyección bestial, duración extrema en piel y una calidad de ingredientes que humilla a muchas marcas tradicionales. 
         </p>
         
         <p style="margin-top: 15px;">
@@ -332,7 +333,8 @@
                         <div class="card-title">9 PM Night Out - Afnan</div>
                         <div class="card-front-content">
                             <div class="card-img-container">
-                                <img src="shatdecant1.jpg" alt="Afnan 9 PM" onerror="this.src='https://via.placeholder.com/200x300/1c1c1e/86868b?text=FOTO+9+PM'">
+                                <!-- Actualizado con el nombre de tu archivo -->
+                                <img src="shatdecant1.jpg" alt="Afnan 9 PM">
                             </div>
                             <div class="card-accords">
                                 <div class="accords-title">Acordes Principales</div>
@@ -350,7 +352,7 @@
                         </div>
                         <div class="flip-hint">(Toca la tarjeta para ver la Pirámide Olfativa ↻)</div>
                     </div>
-                    <!-- DORSO (Con textos concisos para móvil) -->
+                    <!-- DORSO -->
                     <div class="flip-card-back">
                         <div class="card-title">Pirámide del Perfume</div>
                         
@@ -382,7 +384,8 @@
                         <div class="card-title">Khamrah Dukhan - Lattafa</div>
                         <div class="card-front-content">
                             <div class="card-img-container">
-                                <img src="shatdecant2.jpg" alt="Lattafa Khamrah Dukhan" onerror="this.src='https://via.placeholder.com/200x300/1c1c1e/86868b?text=FOTO+KHAMRAH'">
+                                <!-- Actualizado con el nombre de tu archivo -->
+                                <img src="shatdecant2.jpg" alt="Lattafa Khamrah Dukhan">
                             </div>
                             <div class="card-accords">
                                 <div class="accords-title">Acordes Principales</div>
@@ -397,7 +400,7 @@
                         </div>
                         <div class="flip-hint">(Toca la tarjeta para ver la Pirámide Olfativa ↻)</div>
                     </div>
-                    <!-- DORSO (Con textos concisos para móvil) -->
+                    <!-- DORSO -->
                     <div class="flip-card-back">
                         <div class="card-title">Pirámide del Perfume</div>
                         
@@ -482,7 +485,8 @@
             </p>
 
             <div class="combo-decants-showcase">
-                <img src="shatfrasco.jpg" alt="Combo 3 Decants" class="combo-decants-img" onerror="this.src='https://via.placeholder.com/400x250/1c1c1e/86868b?text=FOTO+3+DECANTS'">
+                <!-- Actualizado con el nombre de tu archivo -->
+                <img src="shatfrasco.jpg" alt="Combo 3 Decants" class="combo-decants-img">
                 <div class="combo-decants-note">* Fragancias a tu libre elección.</div>
             </div>
             
